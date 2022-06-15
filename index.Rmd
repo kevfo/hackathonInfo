@@ -1,0 +1,122 @@
+--- 
+title: "Hackathon Information"
+author: "Kevin Fo"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: 
+  bookdown::html_book:
+    theme: journal
+documentclass: book
+bibliography: [book.bib, packages.bib]
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  A simple bookdown website to explain my expectations for hackathons (should you choose to work with me).
+link-citations: yes
+split_by: "section"
+---
+
+# About {-}
+
+This website was specifically made to establish my expectations (and boundaries) when it comes to hackathons and similar events.  
+
+Based solely off past experiences, I've noticed that those I chose to work with don't usually deliver in spite of me stating my expectations beforehand (i.e., before the event starts).  Perhaps I wasn't vocal enough, perhaps I expected too much, or perhaps the expectations that I laid forth were too vague to convey my intended meanings?  During every event, the following questions loom through my head each day:
+
+1.  Am I doing a good enough job ensuring that others know what they are supposed to do?
+1.  Am I pushing others too hard or not enough?  Is everybody feeling challenged or is it just a select few individuals?
+1.  Am I giving others too much leeway in exchange for their results?  How do I know that they actually did something or if they went AWOL?
+1.  Does everybody feel safe sharing their thoughts with me in a group chat?  How can I coax those who are a little bit more introverted to share their ideas and thoughts?
+1.  If others are indeed struggling with something, how can I teach them that "something" so that they will actually be able to do something without me having to do most of the heavy lifting?  
+1.  Do people agree with me because they actually agree with my thoughts or because I'm the leader and everything Kevin says is what we'll go for?
+1.  Am I communicating well enough to ensure that nobody gets lost?
+
+Leading a team is never an easy task (even more so for introverted individuals like myself), and truth be told, I am tired of having to re-answer these questions during each event.  
+
+For that reason, I've decided to host this website so that:
+
+1.  You understand what I'm like as a team leader (should you choose to appoint me as one, that is) and to some extent, as a person.
+1.  You know what I expect from you.
+1.  You can clarify any doubts that you may have with me if need be.  
+
+And hopefully, this will be sufficient to smothen things out in future events.  When you're ready, head over to the next sub-section for some commonly-asked questions that you may have!
+
+## FAQs {-}
+
+Chances are that you'll have some questions about working with me or even just about hackathons in general.  I'll be happy to answer them - if your question isn't listed here, feel free to send me a private message and we can pick things up from there!
+
+### About Hackathons {-}
+
+Here, I answer some questions that you might have regarding hackathons.
+
+1.  **How long does a hackathon typically last?**
+
+    That's hard to say - this really depends on the event itself.  However, hackathons in the SBS typically last a week from 10:00 AM to 5:00 PM during each day.  Hackathons also start near the beginning of each summer break - that way, others who may have plans in the middle of the summer don't get affected.
+    
+1.  **What is the goal of a hackathon?**
+
+    Generally speaking, hackathons aim to solve *some* real-world problem.  For instance, if a hackathon's theme is centered around Singapore's diabetic community, a possible aim of the hackathon could be to engineer a solution to detect pre-diabetes in the general populace to enable at-risk groups to make necessary lifestyle changes.
+    
+    However, multiple problem statements or aims will be proposed during the hackathon, so you do not need to worry too much about what to do if you are really lost!  Furthermore, if you are gutsy enough, you can also use these statements or aims to develop your own problem(s) to tackle.
+    
+    Raw data (i.e., data that hasn't been processed) pertaining to the hackathon's theme will be provided to you.  How you choose to tackle these statments or aims will be completely up to you - this is a wonderful opportunity to show what you're capable of and how innovative you can be!
+    
+1.  **Alright, so I've made something cool with the data given to me.  What happens next?**
+
+    At the end of a hackathon, you and your team will need to present your work to a panel of judges.  Strictly speaking from experience, the judges will consist of one or more of the following people:   
+    
+    1.  Machine learning experts / people who are reasonably competent in this aspect (e.g., PhD students).
+    1.  Domain-knowledge experts.
+    
+    When presenting your work, you will typically have around 15 minutes to explain your work and convince the judges of your work's significance.  Your team will then be subjected to a QnA session that will last around five minutes.
+    
+    Once your presentation and your QnA is over, feel free to give yourself a pat on the back - the Hackathon is *almost* over!  All that will be left is to wait for the closing ceremony.  The judges will also need time (around 45 minutes to an hour) to discuss winners; until then, feel free to chill!
+    
+1.  **What happens during the closing ceremony?**
+
+    Generally speaking, the host of the hackathon will give a brief closing speech.  The judges of the hackathon may also have some closing remarks to make.
+    
+    The winners of the hackathon will also be announced then.  
+    
+1.  **What reward(s) do I get for winning a hackathon?**
+
+    When it comes to SBS hackathons, the prizes for winning first, second, or third are GrabFood vouchers (\$50, \$40, and \$30 GrabFood vouchers per team respectively).  
+    
+    However, all participants will also receive a participation certificate regardless of which place they won.  If your team won first, second, or third, then your place will also be stated on the certificate.
+    
+    Other rewards may also be issued, but that is up to the event organizers themselves!
+    
+### About conduct {-}
+
+1.  **Do you expect me to work from 10:00 AM to 5:00 PM every single day?**
+
+    Short answer, *no*.  I work hard during these events, but at the end of the day, I am still a human: I gotta get up and stretch my legs from time to time!
+    
+    If you are participating in a SBS-hosted hackathon, then chances are that it's also your summer break.  You have every right to enjoy your summer, so if you have places to be (or want to be), I won't complain if you want to head to Universal Studios with your loved ones at 12:00 PM and stay the night in a luxury suite in one of the many hotels on Sentosa.
+    
+    However, I only ask that you contribute your share each day (i.e., if you have a set of assigned tasks from me or from somebody else, please don't leave them hanging) in exchange for this freedom.  It simply wouldn't be fair to myself or to others for us to pick up your slack because you were out the entire day and forgot about this event.
+    
+1.  **I know squat about the technologies that we're using.  Am I doomed?**
+    
+    That depends on what you mean by "doomed".
+    
+    Just because you haven't mastered R or Python does not mean that you will not be able to do anything productive with those languages.  I'm definitely no Hadley Wickham or Yihui Xie (i.e., two of the biggest names in the R community), but that hasn't stopped me from winning hackathons.  If anything, it's your attitude that *really* counts at the end of the day - you can know everything there is to know about R and / or Python, but if you can't be bothered to put in the effort to do something unique with your knowledge, how would you be any better than somebody who's a complete newbie to programming?
+    
+    With practice comes skill, and hackathons are a great way of practicing your R and / or Python skills too!  Even I mess up and forget things from time to time (so much so that I frequently use the `?` operator and the `help()` function in R), and I even do things that I have never done before (e.g., using a package that I've never even heard of).  In some ways, you and I are quite alike, but at the end of the day, only you can overcome this fear of being "doomed"!
+    
+    So no - you will not be dead weight to me as long as you are willing to put in the hours to learn and to contribute.  
+    
+1.  **What is gonna happen each day?**
+
+    That's tough to say: however, I ideally try to get the following done by the first day of each hackathon:
+    
+    1.  Deciding on a topic to settle down on.
+    1.  Discussing solutions to the topic.
+    1.  Deciding roles.
+    1.  Begin exploring and cleaning the data given.
+    1.  Begin drafting out presentation ideas (e.g., do we want to build a web application to demonstrate an application of our work).
+    
+    Otherwise, what happens during each day also depends on what happens the day or the night before.  Are we done exploring and cleaning the data?  If so, we should spend the day training and building machine learning models with it.  Or, do we already have a good idea of the application that we want to make to showcase our work (i.e., do we have appropriate user stories and have we agreed upon a technology stack to use)?  If we do, then let's get started building our application!
+    
+    As you can see, I do things *pretty* methodologically.  However, this is more a *guideline* of how I do things than it is a *bible* that I follow to a tee - if we have to focus on cleaning and exploring the data along with training and building a machine learning model with it, then so be it!
+    
+

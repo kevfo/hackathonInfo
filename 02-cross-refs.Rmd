@@ -1,0 +1,245 @@
+# (PART) My Expectations {-}
+
+# An Example Workflow
+
+Like I mentioned at the beginning of the chapter, people who I used to work with didn't usually deliver (at least to my standards).  While I believe that this is largely my fault, the person isn't completely blame-free either.
+
+```{r echo = FALSE, fig.cap = "Me, Deep Down Inside, When I Look at Subpar Work", fig.align = "center", out.width = "50%"}
+knitr::include_graphics("images/facepalm.jpg")
+```
+
+On one hand, I have no qualms with working with beginners as long as they are willing to put in the effort to learn, but this also means that I lose any rights to complain too much about the quality of their work.  And yet, even after directing them to resources to read up on or consult for hackathons, they still struggle with tasks that have been very clearly covered in those resources.  This leads me to suspect one of several things:
+
+1.  The person is seriously struggling and desperately needs help.
+1.  The person is lazy.
+1.  I'm asking too much from them.
+1.  The person can't deliver because they still don't understand what I'm looking for.
+
+Fortunately, I think points 1., 3., and 4. can be addressed with an example to set the bar.  Point 2., on the contrary, is one that I have no power over.  If you cannot even be bothered to at least try, then I wonder why it is that you even signed up for the hackathon in the first place^[And yes, I'd kick you off the team too if the event's rules allow for it.].  Nevertheless,
+
+Mind you, this workflow that I came up with isn't 100% perfect, but it will give you a good idea of what I expect from you.  Without further ado, hit the right arrow key on your keyboard to begin viewing my workflow!
+
+## The Problem at Hand
+
+```{r echo = FALSE, fig.cap = "3D Rendering of the RMS *Titanic*", fig.align = "center", out.width = "50%"}
+knitr::include_graphics("images/titanic.jpg")
+```
+
+The sinking of the RMS *Titanic* is widely considered to be one of the worst accidents in maritime history.
+
+The once-thought unsinkable ship sank after it collided with an iceberg on April 15, 1912.  Unfortunately, there weren't enough lifeboats on deck for all passengers, hence resulting in the deaths of 1502 out of 2224 total passengers and crew.
+
+While there was some element of luck involved in one's survival, official data also suggests that certain kind(s) of people were likelier to survive than others.
+
+Hence, our task is to design a predictive model that uses passenger data (i.e., a passenger's name, their passenger class, their ticket fares, etc.) to answer the following question: "**which kind(s) of people are likelier to survive the sinking of the RMS *Titanic*?**"
+
+## Setting up the Workspace
+
+Before we begin doing any anything, it's always a good idea to ensure that you have all the tools that you need.  Not only does this make our workflow easier to follow, but it also prevents us from being too distracted^[That is, you don't want your train of thought to be disrupted.].  
+
+First things first, I will set my working directory to my machine's "Downloads" folder where the data for this competition is stored^[I'm using an absolute path here - if you are sending your code to others, it's best practice to avoid doing this!]:
+
+```{r eval = FALSE}
+setwd("C:/Users/Kevin/Downloads")
+```
+
+Then, I will load in the following packages:
+
+```{r eval = FALSE}
+library(tidyverse) ; library(ggplot2) ; library(corrplot)
+library(caret)
+```
+
+Don't worry if you don't know what some of these packages do - I will explain them below:
+
+1.  `tidyverse`
+
+    This isn't technically a package per se, but a *collection* of packages.  The `tidyverse` is a collection of packages authored by Hadley Wickham that obey his [tidy data](https://vita.had.co.nz/papers/tidy-data.html) principle^[If you want a TL;DR version, **tidy data** is data that has one variable per column and one observation per row.].  Theese packages (along with a brief statement on what they do) are:
+    
+    1.  `tidyr` - for "tidying" data.
+    1.  `purrr` - for functional programming.
+    1.  `dplyr` - for manipulating data.
+    1.  `readr` - for reading in data.
+    1.  `stringr` - for manipulating strings.
+    
+    The `tidyverse` packages provide a more intuitive solution to base R's syntax, and for that reason, I will be using functions from the above five packages often.  Moreover, calling `library(tidyverse)` will also load in another package: `magrittr` - this package provides many new operators, of which the pipe operator `%>%` is the most used (and will also be frequently used in this R Markdown document).
+
+    Consider the following code block that calls three functions `foo()`, `bar()`, and `baz()` on some variable `a` (i.e., nested function calls):
+    
+    ```{r eval = F}
+    # Can become hard to read depending on what you're doing!
+    foo(bar(baz(a)))
+    ```
+    
+    The following expression - using `%>%` - also performs the same set of actions:
+    
+    ```{r eval = F}
+    # Much nicer and easier to read in my opinion!
+    a %>% baz() %>% bar() %>% foo()
+    ```
+    
+    This notation can be especially handy depending on what you're trying to do!
+    
+1.  `ggplot2`
+
+    If you've taken *BS0004*, then you probably already know what this does.  Otherwise, if you've forgotten or haven't heard of this package before, then know that it's a package authored by Hadley Wickham that is used to produce presentation-quality graphs.  
+
+1.  `caret`
+
+    `caret` is an acronym for **c**lassification **a**nd **re**gression **t**raining.  I will be using this package to train our predictor (i.e., machine learning model).
+    
+1.  `corrplot`
+
+    This package will be used to construct correlation plots.
+
+Now that we have all tools that we need, we can proceed on to the next part: examining the structure of our data and cleaning it if need be.
+
+## Data Cleaning
+
+Let's begin this part of our workflow by reading in our competition's data into our current R session:
+
+```{r message = FALSE}
+modelData <- read_csv("train(1).csv")
+testData <- read_csv("test(1).csv")
+```
+
+Do note the following at this point:
+
+1.  `modelData` is a variable that will host our competition's training data.  That is, we will be using this .csv file (and only this .csv file) to train our predictive model(s).
+    
+1.  `testData` is our testing set.  Once we are happy with our predictive model's performance, we will then apply it to `testData` and submit our predictions off to Kaggle to be evaluated.
+
+I'll then call the `str()` function to take a quick look at `modelData` and `testData`:
+
+```{r}
+str(modelData) 
+str(testData)
+```
+
+From the look of it, it doesn't appear that our data's structure needs to be changed.  According to Kaggle, the variables' meanings are as follows:
+
+1.  `PassengerId` - this is a unique identifier for each passenger.
+1.  `Survived`- did the passenger survive (0 = died, 1 = survived)?
+1.  `Pclass` - the passenger's ticket class.
+1.  `Name` - the passenger's name.
+1.  `Sex` - the passenger's biological gender.
+1.  `Age` - the passenger's age.
+1.  `SibSp` - the amount of siblings and / or spouses the passenger has on board the *Titanic*.
+1.  `Parch` - the amount of parents and / or children the passenger has on board the *Titanic*.
+1.  `Ticket` - the passenger's ticket number.
+1.  `Fare` - the passenger's ticket fare.
+1.  `Cabin` - the passenger's cabin number.
+1.  `Embarked` - from which port did the passenger board the *Titanic* (S = Southampton, C = Cherbourg, Q = Queenstown)?
+
+Furthermore, I also see some `NA`s present in some of our variables - just how many `NA`s are there in both `modelData`'s and `testData`'s variables?
+
+```{r}
+colSums(is.na(modelData)) 
+colSums(is.na(testData))
+```
+
+Based on the above codeblocks (and Kaggle's description of the variables that we have to work with), I noted the following:
+
+1.  Our categorical variables (i.e., `Sex`, `Pclass`, and `Embarked`) are not factors like they should be.
+1.  We have tons of `NA`s in the `Cabin` variable of both `modelData` and `testData`.  I think we should discard this variable from both sets of data as a significant chunk (i.e., more than 77% of our variable's data) is missing.
+1.  A good chunk of our passengers' ages also appear to be missing.  We're going to need to find *something* to impute those missing ages with if we don't want to omit these passengers altogether.
+1.  We also have some missing data in some of the other variables.  While we could impute these pieces of missing data with something, we could also remove these passengers or leave them be (depending on the variables that we do end up using to train our models).
+1.  `PassengerId` in modelData is useless and should be removed.
+
+So, let's get started with 1., 2., and 5. first:
+
+```{r message = FALSE}
+# Task 1
+modelData$Survived <- as.factor(modelData$Survived)
+modelData$Sex <- as.factor(modelData$Sex)
+modelData$Embarked <- as.factor(modelData$Embarked)
+modelData$Pclass <- as.factor(modelData$Pclass)
+
+testData$Sex <- as.factor(testData$Sex)
+testData$Embarked <- as.factor(testData$Embarked)
+testData$Pclass <- as.factor(testData$Pclass)
+
+# Task 2 + 5
+modelData <- select(modelData, -c(PassengerId, Cabin))
+testData <- select(testData, -c(Cabin))
+```
+
+And just to verify that we indeed do what we set out to do, let's call the `str()` function again:
+
+```{r}
+str(modelData)
+str(testData)
+```
+
+And it appears that we did accomplish our goal!  However, I think it's worth noting that of all the categorical variables that we have in `modelData` and `testData`, that `Sex` and `Embarked` are not encoded.  Depending on the model that we build in the end, this may or may be a concern, but we'll definitely cross that bridge when we come to it!
+
+## Exploratory Data Analysis
+
+Before we begin building and training our models, it helps to explore the data a bit first.  Doing so not only gives us a better understanding of the data that we're dealing with, but also helps us uncover hidden (and perhaps significant) relationships that we can then use when we finally begin building our model^[For instance, if variable A is highly correlated with variable B, then this tells us that we shouldn't use both variables A and B in a linear model.].
+
+In this portion of the workflow, we will be using `modelData` exclusively.  Like I previously mentioned, `testData` is the set of data that we'll be applying our predictor to once we're happy with its performance - because of this, we shouldn't touch it now lest the model we build becomes prone to overfitting^[This is a phenomena in machine learning whereby your model performs well on its training data, but performs poorly otherwise.].
+
+### Understanding feature distribution by survival status
+
+I think we can start by observing the distribution of our variables by survival status.  Doing so not only allows us to understand the distribution of our data, but also potentially understand which feature(s) are important in determining one's survival status.  I also used the log transform of our data lest `ggplot2` squashes our boxplots.
+
+```{r}
+modelData %>% select(-c(Ticket, Embarked, Name, Pclass, Sex)) %>% 
+    na.omit() %>% 
+    melt(id.var = 'Survived') %>% ggplot(aes(x = Survived, y = log(value))) +
+    geom_boxplot(aes(fill = Survived)) + facet_wrap(~variable, ncol = 2) +
+    labs(title = "Distribution of Numerical Features by Survival Status",
+         x = "Feature",
+         y = "log(numerical feature)",
+         fill = "Survived?") + scale_fill_discrete(labels = c("No", "Yes"))
+```
+
+Unfortunately, I don't think that the boxplots above show anything useful.  We see that those who died had more or less the same amount of spouses and / or siblings and / or parents and / or children (this also implies that a good chunk of our passengers were travelling alone).  Furthermore, neither age nor fare paid seem to vary too much between dead and alive passengers.
+
+### Correlation analysis with numerical variables
+
+Our numerical variables alone don't seem to to be a good predictor of one's survival status.  However, I also wonder if any of these numerical variables also share relationships with one another:
+
+```{r}
+modelData %>% select(-c(Ticket, Embarked, Name, Pclass, Sex, Survived)) %>% 
+    na.omit() %>% cor() %>% corrplot.mixed()
+```
+
+This doesn't seem to be the case either.  At best, it seems to imply that `SibSp` and `Parch` are somewhat related (i.e., the more siblings and / or spouses that one has on board the *Titanic*, the more parents and / or children the passenger on board has too) - something similar can probably also be said for `Age` and `SibSp`.  However, we should still take the aforementioned with a grain of salt as the Pearson correlation coefficient between these pairs of variables are only 0.38 and -0.31. 
+
+On the plus side, if we do end up using these numerical features in say - a logistic regression model - then colinearity isn't an issue.
+
+### Exploring passengers' passenger classes
+
+Our numerical variables seem to do a poor job in predicting the survival status of our passengers (at least by themselves).  Hence, might more passengers have survived based on their passenger classes?
+
+```{r}
+modelData %>% select(c(Pclass, Survived)) %>% na.omit() %>% 
+    ggplot(aes(x = Survived)) + geom_bar(aes(fill = Survived)) +
+    facet_wrap(~Pclass) +
+    labs(title = "Amount of Survivors by Passenger Class",
+         x = "Passenger Class",
+         y = "Amount of Passengers",
+         fill = "Survived?") + 
+    scale_fill_discrete(labels = c("No", "Yes")) + theme_bw() + 
+    theme(axis.text.x = element_blank())
+```
+
+I think moving forward, `Pclass` is one of the variables that we can use in our models.  We see that first class passengers survived the most, followed by second class passengers, and lastly, third class passengers.
+
+This is also in line with what I found on the internet:
+
+1.  Third class accommodations were located at the bottom of the *Titanic*.  
+1.  Second class accommodations were located at the aft (i.e., the back of the *Titanic*).
+1.  First class accommodations were located on the upper decks of the *Titanic*.
+
+#### Passenger classes by port embarked
+
+
+
+
+
+
+
+
+

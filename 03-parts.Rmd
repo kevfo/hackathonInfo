@@ -1,0 +1,10 @@
+# Imputing Missing Data
+
+Before finally moving onto training and building our predictive model, I want to do something about our missing data:
+
+```{r}
+colSums(is.na(modelData))
+colSums(is.na(testData))
+```
+
+In both `modelData` and `testData`, passenger age seems to be missing the most.  However, we didn't find any significant relationships between one's age and the other variables in our data.

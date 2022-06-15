@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3.3 Data Cleaning | Hackathon Information</title>
+  <meta name="description" content="A simple bookdown website to explain my expectations for hackathons (should you choose to work with me)." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3.3 Data Cleaning | Hackathon Information" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A simple bookdown website to explain my expectations for hackathons (should you choose to work with me)." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3.3 Data Cleaning | Hackathon Information" />
+  
+  <meta name="twitter:description" content="A simple bookdown website to explain my expectations for hackathons (should you choose to work with me)." />
+  
+
+<meta name="author" content="Kevin Fo" />
+
+
+<meta name="date" content="2022-06-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="setting-up-the-workspace.html"/>
+<link rel="next" href="exploratory-data-analysis.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">On Hackathons and Conduct</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like <span>https://bookdown.org/yihui/bookdown</span></a>
+<ul>
+<li class="chapter" data-level="" data-path="faqs.html"><a href="faqs.html"><i class="fa fa-check"></i>FAQs</a>
+<ul>
+<li class="chapter" data-level="" data-path="faqs.html"><a href="faqs.html#about-hackathons"><i class="fa fa-check"></i>About Hackathons</a></li>
+<li class="chapter" data-level="" data-path="faqs.html"><a href="faqs.html#about-conduct"><i class="fa fa-check"></i>About conduct</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="technologies-i-use.html"><a href="technologies-i-use.html"><i class="fa fa-check"></i><b>2</b> Technologies I Use</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>2.1</b> R - the Statistical Programming Language</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="r.html"><a href="r.html#what-is-r"><i class="fa fa-check"></i><b>2.1.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r.html"><a href="r.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r.html"><a href="r.html#resources-to-consult"><i class="fa fa-check"></i><b>2.1.3</b> Resources to consult</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="vcs.html"><a href="vcs.html"><i class="fa fa-check"></i><b>2.2</b> Git, the Version Control System</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="vcs.html"><a href="vcs.html#why-should-i-even-bother-learning-git"><i class="fa fa-check"></i><b>2.2.1</b> Why should I even bother learning Git?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="vcs.html"><a href="vcs.html#installing-git"><i class="fa fa-check"></i><b>2.2.2</b> Installing Git</a></li>
+<li class="chapter" data-level="2.2.3" data-path="vcs.html"><a href="vcs.html#learning-git"><i class="fa fa-check"></i><b>2.2.3</b> Learning Git</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="shiny.html"><a href="shiny.html"><i class="fa fa-check"></i><b>2.3</b> Shiny - a Web Application Framework in R</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="shiny.html"><a href="shiny.html#learning-shiny"><i class="fa fa-check"></i><b>2.3.1</b> Learning Shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>2.4</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="rmarkdown.html"><a href="rmarkdown.html#cool-so-how-do-i-begin-learning-r-markdown"><i class="fa fa-check"></i><b>2.4.1</b> Cool! So, how do I begin learning R markdown?</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I My Expectations</b></span></li>
+<li class="chapter" data-level="3" data-path="an-example-workflow.html"><a href="an-example-workflow.html"><i class="fa fa-check"></i><b>3</b> An Example Workflow</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="the-problem-at-hand.html"><a href="the-problem-at-hand.html"><i class="fa fa-check"></i><b>3.1</b> The Problem at Hand</a></li>
+<li class="chapter" data-level="3.2" data-path="setting-up-the-workspace.html"><a href="setting-up-the-workspace.html"><i class="fa fa-check"></i><b>3.2</b> Setting up the Workspace</a></li>
+<li class="chapter" data-level="3.3" data-path="data-cleaning.html"><a href="data-cleaning.html"><i class="fa fa-check"></i><b>3.3</b> Data Cleaning</a></li>
+<li class="chapter" data-level="3.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>3.4</b> Exploratory Data Analysis</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#understanding-feature-distribution-by-survival-status"><i class="fa fa-check"></i><b>3.4.1</b> Understanding feature distribution by survival status</a></li>
+<li class="chapter" data-level="3.4.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#correlation-analysis-with-numerical-variables"><i class="fa fa-check"></i><b>3.4.2</b> Correlation analysis with numerical variables</a></li>
+<li class="chapter" data-level="3.4.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exploring-passengers-passenger-classes"><i class="fa fa-check"></i><b>3.4.3</b> Exploring passengers’ passenger classes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="imputing-missing-data.html"><a href="imputing-missing-data.html"><i class="fa fa-check"></i><b>4</b> Imputing Missing Data</a></li>
+<li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="footnotes.html"><a href="footnotes.html"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
+<li class="chapter" data-level="5.2" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="equations.html"><a href="equations.html"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="theorems-and-proofs.html"><a href="theorems-and-proofs.html"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="6.3" data-path="callout-blocks.html"><a href="callout-blocks.html"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
+<li class="chapter" data-level="7.2" data-path="pages.html"><a href="pages.html"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
+<li class="chapter" data-level="7.3" data-path="metadata-for-sharing.html"><a href="metadata-for-sharing.html"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Hackathon Information</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-cleaning" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Data Cleaning</h2>
+<p>Let’s begin this part of our workflow by reading in our competition’s data into our current R session:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data-cleaning.html#cb5-1" aria-hidden="true" tabindex="-1"></a>modelData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;train(1).csv&quot;</span>)</span>
+<span id="cb5-2"><a href="data-cleaning.html#cb5-2" aria-hidden="true" tabindex="-1"></a>testData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;test(1).csv&quot;</span>)</span></code></pre></div>
+<p>Do note the following at this point:</p>
+<ol style="list-style-type: decimal">
+<li><p><code>modelData</code> is a variable that will host our competition’s training data. That is, we will be using this .csv file (and only this .csv file) to train our predictive model(s).</p></li>
+<li><p><code>testData</code> is our testing set. Once we are happy with our predictive model’s performance, we will then apply it to <code>testData</code> and submit our predictions off to Kaggle to be evaluated.</p></li>
+</ol>
+<p>I’ll then call the <code>str()</code> function to take a quick look at <code>modelData</code> and <code>testData</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="data-cleaning.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(modelData) </span></code></pre></div>
+<pre><code>## spec_tbl_df [891 x 12] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ PassengerId: num [1:891] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ Survived   : num [1:891] 0 1 1 1 0 0 0 0 1 1 ...
+##  $ Pclass     : num [1:891] 3 1 3 1 3 3 1 3 3 2 ...
+##  $ Name       : chr [1:891] &quot;Braund, Mr. Owen Harris&quot; &quot;Cumings, Mrs. John Bradley (Florence Briggs Thayer)&quot; &quot;Heikkinen, Miss. Laina&quot; &quot;Futrelle, Mrs. Jacques Heath (Lily May Peel)&quot; ...
+##  $ Sex        : chr [1:891] &quot;male&quot; &quot;female&quot; &quot;female&quot; &quot;female&quot; ...
+##  $ Age        : num [1:891] 22 38 26 35 35 NA 54 2 27 14 ...
+##  $ SibSp      : num [1:891] 1 1 0 1 0 0 0 3 0 1 ...
+##  $ Parch      : num [1:891] 0 0 0 0 0 0 0 1 2 0 ...
+##  $ Ticket     : chr [1:891] &quot;A/5 21171&quot; &quot;PC 17599&quot; &quot;STON/O2. 3101282&quot; &quot;113803&quot; ...
+##  $ Fare       : num [1:891] 7.25 71.28 7.92 53.1 8.05 ...
+##  $ Cabin      : chr [1:891] NA &quot;C85&quot; NA &quot;C123&quot; ...
+##  $ Embarked   : chr [1:891] &quot;S&quot; &quot;C&quot; &quot;S&quot; &quot;S&quot; ...
+##  - attr(*, &quot;spec&quot;)=
+##   .. cols(
+##   ..   PassengerId = col_double(),
+##   ..   Survived = col_double(),
+##   ..   Pclass = col_double(),
+##   ..   Name = col_character(),
+##   ..   Sex = col_character(),
+##   ..   Age = col_double(),
+##   ..   SibSp = col_double(),
+##   ..   Parch = col_double(),
+##   ..   Ticket = col_character(),
+##   ..   Fare = col_double(),
+##   ..   Cabin = col_character(),
+##   ..   Embarked = col_character()
+##   .. )
+##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="data-cleaning.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(testData)</span></code></pre></div>
+<pre><code>## spec_tbl_df [418 x 11] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ PassengerId: num [1:418] 892 893 894 895 896 897 898 899 900 901 ...
+##  $ Pclass     : num [1:418] 3 3 2 3 3 3 3 2 3 3 ...
+##  $ Name       : chr [1:418] &quot;Kelly, Mr. James&quot; &quot;Wilkes, Mrs. James (Ellen Needs)&quot; &quot;Myles, Mr. Thomas Francis&quot; &quot;Wirz, Mr. Albert&quot; ...
+##  $ Sex        : chr [1:418] &quot;male&quot; &quot;female&quot; &quot;male&quot; &quot;male&quot; ...
+##  $ Age        : num [1:418] 34.5 47 62 27 22 14 30 26 18 21 ...
+##  $ SibSp      : num [1:418] 0 1 0 0 1 0 0 1 0 2 ...
+##  $ Parch      : num [1:418] 0 0 0 0 1 0 0 1 0 0 ...
+##  $ Ticket     : chr [1:418] &quot;330911&quot; &quot;363272&quot; &quot;240276&quot; &quot;315154&quot; ...
+##  $ Fare       : num [1:418] 7.83 7 9.69 8.66 12.29 ...
+##  $ Cabin      : chr [1:418] NA NA NA NA ...
+##  $ Embarked   : chr [1:418] &quot;Q&quot; &quot;S&quot; &quot;Q&quot; &quot;S&quot; ...
+##  - attr(*, &quot;spec&quot;)=
+##   .. cols(
+##   ..   PassengerId = col_double(),
+##   ..   Pclass = col_double(),
+##   ..   Name = col_character(),
+##   ..   Sex = col_character(),
+##   ..   Age = col_double(),
+##   ..   SibSp = col_double(),
+##   ..   Parch = col_double(),
+##   ..   Ticket = col_character(),
+##   ..   Fare = col_double(),
+##   ..   Cabin = col_character(),
+##   ..   Embarked = col_character()
+##   .. )
+##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
+<p>From the look of it, it doesn’t appear that our data’s structure needs to be changed. According to Kaggle, the variables’ meanings are as follows:</p>
+<ol style="list-style-type: decimal">
+<li><code>PassengerId</code> - this is a unique identifier for each passenger.</li>
+<li><code>Survived</code>- did the passenger survive (0 = died, 1 = survived)?</li>
+<li><code>Pclass</code> - the passenger’s ticket class.</li>
+<li><code>Name</code> - the passenger’s name.</li>
+<li><code>Sex</code> - the passenger’s biological gender.</li>
+<li><code>Age</code> - the passenger’s age.</li>
+<li><code>SibSp</code> - the amount of siblings and / or spouses the passenger has on board the <em>Titanic</em>.</li>
+<li><code>Parch</code> - the amount of parents and / or children the passenger has on board the <em>Titanic</em>.</li>
+<li><code>Ticket</code> - the passenger’s ticket number.</li>
+<li><code>Fare</code> - the passenger’s ticket fare.</li>
+<li><code>Cabin</code> - the passenger’s cabin number.</li>
+<li><code>Embarked</code> - from which port did the passenger board the <em>Titanic</em> (S = Southampton, C = Cherbourg, Q = Queenstown)?</li>
+</ol>
+<p>Furthermore, I also see some <code>NA</code>s present in some of our variables - just how many <code>NA</code>s are there in both <code>modelData</code>’s and <code>testData</code>’s variables?</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-cleaning.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(modelData)) </span></code></pre></div>
+<pre><code>## PassengerId    Survived      Pclass        Name         Sex         Age 
+##           0           0           0           0           0         177 
+##       SibSp       Parch      Ticket        Fare       Cabin    Embarked 
+##           0           0           0           0         687           2</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="data-cleaning.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(testData))</span></code></pre></div>
+<pre><code>## PassengerId      Pclass        Name         Sex         Age       SibSp 
+##           0           0           0           0          86           0 
+##       Parch      Ticket        Fare       Cabin    Embarked 
+##           0           0           1         327           0</code></pre>
+<p>Based on the above codeblocks (and Kaggle’s description of the variables that we have to work with), I noted the following:</p>
+<ol style="list-style-type: decimal">
+<li>Our categorical variables (i.e., <code>Sex</code>, <code>Pclass</code>, and <code>Embarked</code>) are not factors like they should be.</li>
+<li>We have tons of <code>NA</code>s in the <code>Cabin</code> variable of both <code>modelData</code> and <code>testData</code>. I think we should discard this variable from both sets of data as a significant chunk (i.e., more than 77% of our variable’s data) is missing.</li>
+<li>A good chunk of our passengers’ ages also appear to be missing. We’re going to need to find <em>something</em> to impute those missing ages with if we don’t want to omit these passengers altogether.</li>
+<li>We also have some missing data in some of the other variables. While we could impute these pieces of missing data with something, we could also remove these passengers or leave them be (depending on the variables that we do end up using to train our models).</li>
+<li><code>PassengerId</code> in modelData is useless and should be removed.</li>
+</ol>
+<p>So, let’s get started with 1., 2., and 5. first:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="data-cleaning.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Task 1</span></span>
+<span id="cb14-2"><a href="data-cleaning.html#cb14-2" aria-hidden="true" tabindex="-1"></a>modelData<span class="sc">$</span>Survived <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(modelData<span class="sc">$</span>Survived)</span>
+<span id="cb14-3"><a href="data-cleaning.html#cb14-3" aria-hidden="true" tabindex="-1"></a>modelData<span class="sc">$</span>Sex <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(modelData<span class="sc">$</span>Sex)</span>
+<span id="cb14-4"><a href="data-cleaning.html#cb14-4" aria-hidden="true" tabindex="-1"></a>modelData<span class="sc">$</span>Embarked <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(modelData<span class="sc">$</span>Embarked)</span>
+<span id="cb14-5"><a href="data-cleaning.html#cb14-5" aria-hidden="true" tabindex="-1"></a>modelData<span class="sc">$</span>Pclass <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(modelData<span class="sc">$</span>Pclass)</span>
+<span id="cb14-6"><a href="data-cleaning.html#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="data-cleaning.html#cb14-7" aria-hidden="true" tabindex="-1"></a>testData<span class="sc">$</span>Sex <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(testData<span class="sc">$</span>Sex)</span>
+<span id="cb14-8"><a href="data-cleaning.html#cb14-8" aria-hidden="true" tabindex="-1"></a>testData<span class="sc">$</span>Embarked <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(testData<span class="sc">$</span>Embarked)</span>
+<span id="cb14-9"><a href="data-cleaning.html#cb14-9" aria-hidden="true" tabindex="-1"></a>testData<span class="sc">$</span>Pclass <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(testData<span class="sc">$</span>Pclass)</span>
+<span id="cb14-10"><a href="data-cleaning.html#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="data-cleaning.html#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Task 2 + 5</span></span>
+<span id="cb14-12"><a href="data-cleaning.html#cb14-12" aria-hidden="true" tabindex="-1"></a>modelData <span class="ot">&lt;-</span> <span class="fu">select</span>(modelData, <span class="sc">-</span><span class="fu">c</span>(PassengerId, Cabin))</span>
+<span id="cb14-13"><a href="data-cleaning.html#cb14-13" aria-hidden="true" tabindex="-1"></a>testData <span class="ot">&lt;-</span> <span class="fu">select</span>(testData, <span class="sc">-</span><span class="fu">c</span>(Cabin))</span></code></pre></div>
+<p>And just to verify that we indeed do what we set out to do, let’s call the <code>str()</code> function again:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-cleaning.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(modelData)</span></code></pre></div>
+<pre><code>## tibble [891 x 10] (S3: tbl_df/tbl/data.frame)
+##  $ Survived: Factor w/ 2 levels &quot;0&quot;,&quot;1&quot;: 1 2 2 2 1 1 1 1 2 2 ...
+##  $ Pclass  : Factor w/ 3 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;: 3 1 3 1 3 3 1 3 3 2 ...
+##  $ Name    : chr [1:891] &quot;Braund, Mr. Owen Harris&quot; &quot;Cumings, Mrs. John Bradley (Florence Briggs Thayer)&quot; &quot;Heikkinen, Miss. Laina&quot; &quot;Futrelle, Mrs. Jacques Heath (Lily May Peel)&quot; ...
+##  $ Sex     : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 1 1 1 2 2 2 2 1 1 ...
+##  $ Age     : num [1:891] 22 38 26 35 35 NA 54 2 27 14 ...
+##  $ SibSp   : num [1:891] 1 1 0 1 0 0 0 3 0 1 ...
+##  $ Parch   : num [1:891] 0 0 0 0 0 0 0 1 2 0 ...
+##  $ Ticket  : chr [1:891] &quot;A/5 21171&quot; &quot;PC 17599&quot; &quot;STON/O2. 3101282&quot; &quot;113803&quot; ...
+##  $ Fare    : num [1:891] 7.25 71.28 7.92 53.1 8.05 ...
+##  $ Embarked: Factor w/ 3 levels &quot;C&quot;,&quot;Q&quot;,&quot;S&quot;: 3 1 3 3 3 2 3 3 3 1 ...</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-cleaning.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(testData)</span></code></pre></div>
+<pre><code>## tibble [418 x 10] (S3: tbl_df/tbl/data.frame)
+##  $ PassengerId: num [1:418] 892 893 894 895 896 897 898 899 900 901 ...
+##  $ Pclass     : Factor w/ 3 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;: 3 3 2 3 3 3 3 2 3 3 ...
+##  $ Name       : chr [1:418] &quot;Kelly, Mr. James&quot; &quot;Wilkes, Mrs. James (Ellen Needs)&quot; &quot;Myles, Mr. Thomas Francis&quot; &quot;Wirz, Mr. Albert&quot; ...
+##  $ Sex        : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 1 2 2 1 2 1 2 1 2 ...
+##  $ Age        : num [1:418] 34.5 47 62 27 22 14 30 26 18 21 ...
+##  $ SibSp      : num [1:418] 0 1 0 0 1 0 0 1 0 2 ...
+##  $ Parch      : num [1:418] 0 0 0 0 1 0 0 1 0 0 ...
+##  $ Ticket     : chr [1:418] &quot;330911&quot; &quot;363272&quot; &quot;240276&quot; &quot;315154&quot; ...
+##  $ Fare       : num [1:418] 7.83 7 9.69 8.66 12.29 ...
+##  $ Embarked   : Factor w/ 3 levels &quot;C&quot;,&quot;Q&quot;,&quot;S&quot;: 2 3 2 3 3 3 2 3 1 3 ...</code></pre>
+<p>And it appears that we did accomplish our goal! However, I think it’s worth noting that of all the categorical variables that we have in <code>modelData</code> and <code>testData</code>, that <code>Sex</code> and <code>Embarked</code> are not encoded. Depending on the model that we build in the end, this may or may be a concern, but we’ll definitely cross that bridge when we come to it!</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="setting-up-the-workspace.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exploratory-data-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

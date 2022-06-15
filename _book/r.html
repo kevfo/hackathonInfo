@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.1 R - the Statistical Programming Language | Hackathon Information</title>
+  <meta name="description" content="A simple bookdown website to explain my expectations for hackathons (should you choose to work with me)." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.1 R - the Statistical Programming Language | Hackathon Information" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A simple bookdown website to explain my expectations for hackathons (should you choose to work with me)." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.1 R - the Statistical Programming Language | Hackathon Information" />
+  
+  <meta name="twitter:description" content="A simple bookdown website to explain my expectations for hackathons (should you choose to work with me)." />
+  
+
+<meta name="author" content="Kevin Fo" />
+
+
+<meta name="date" content="2022-06-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="technologies-i-use.html"/>
+<link rel="next" href="vcs.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">On Hackathons and Conduct</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a>
+<ul>
+<li class="chapter" data-level="" data-path="faqs.html"><a href="faqs.html"><i class="fa fa-check"></i>FAQs</a>
+<ul>
+<li class="chapter" data-level="" data-path="faqs.html"><a href="faqs.html#about-hackathons"><i class="fa fa-check"></i>About Hackathons</a></li>
+<li class="chapter" data-level="" data-path="faqs.html"><a href="faqs.html#about-conduct"><i class="fa fa-check"></i>About conduct</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="technologies-i-use.html"><a href="technologies-i-use.html"><i class="fa fa-check"></i><b>1</b> Technologies I Use</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>1.1</b> R - the Statistical Programming Language</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="r.html"><a href="r.html#what-is-r"><i class="fa fa-check"></i><b>1.1.1</b> What is R?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="r.html"><a href="r.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.1.3" data-path="r.html"><a href="r.html#resources-to-consult"><i class="fa fa-check"></i><b>1.1.3</b> Resources to consult</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="vcs.html"><a href="vcs.html"><i class="fa fa-check"></i><b>1.2</b> Git, the Version Control System</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="vcs.html"><a href="vcs.html#why-should-i-even-bother-learning-git"><i class="fa fa-check"></i><b>1.2.1</b> Why should I even bother learning Git?</a></li>
+<li class="chapter" data-level="1.2.2" data-path="vcs.html"><a href="vcs.html#installing-git"><i class="fa fa-check"></i><b>1.2.2</b> Installing Git</a></li>
+<li class="chapter" data-level="1.2.3" data-path="vcs.html"><a href="vcs.html#learning-git"><i class="fa fa-check"></i><b>1.2.3</b> Learning Git</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="shiny.html"><a href="shiny.html"><i class="fa fa-check"></i><b>1.3</b> Shiny - a Web Application Framework in R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="shiny.html"><a href="shiny.html#learning-shiny"><i class="fa fa-check"></i><b>1.3.1</b> Learning Shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>1.4</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="rmarkdown.html"><a href="rmarkdown.html#cool-so-how-do-i-begin-learning-r-markdown"><i class="fa fa-check"></i><b>1.4.1</b> Cool! So, how do I begin learning R markdown?</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I My Expectations</b></span></li>
+<li class="chapter" data-level="2" data-path="an-example-workflow.html"><a href="an-example-workflow.html"><i class="fa fa-check"></i><b>2</b> An Example Workflow</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="the-problem-at-hand.html"><a href="the-problem-at-hand.html"><i class="fa fa-check"></i><b>2.1</b> The Problem at Hand</a></li>
+<li class="chapter" data-level="2.2" data-path="setting-up-the-workspace.html"><a href="setting-up-the-workspace.html"><i class="fa fa-check"></i><b>2.2</b> Setting up the Workspace</a></li>
+<li class="chapter" data-level="2.3" data-path="data-cleaning.html"><a href="data-cleaning.html"><i class="fa fa-check"></i><b>2.3</b> Data Cleaning</a></li>
+<li class="chapter" data-level="2.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>2.4</b> Exploratory Data Analysis</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exploring-passengers-ages"><i class="fa fa-check"></i><b>2.4.1</b> Exploring passengers’ ages</a></li>
+<li class="chapter" data-level="2.4.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exploring-passengers-gender"><i class="fa fa-check"></i><b>2.4.2</b> Exploring passengers’ gender</a></li>
+<li class="chapter" data-level="2.4.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exploring-passengers-names"><i class="fa fa-check"></i><b>2.4.3</b> Exploring Passengers’ Names</a></li>
+<li class="chapter" data-level="2.4.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#social-class-by-fare-paid"><i class="fa fa-check"></i><b>2.4.4</b> Social class by fare paid?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="imputing-missing-data.html"><a href="imputing-missing-data.html"><i class="fa fa-check"></i><b>3</b> Imputing Missing Data</a></li>
+<li class="chapter" data-level="4" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>4</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="footnotes.html"><a href="footnotes.html"><i class="fa fa-check"></i><b>4.1</b> Footnotes</a></li>
+<li class="chapter" data-level="4.2" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>4.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>5</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="equations.html"><a href="equations.html"><i class="fa fa-check"></i><b>5.1</b> Equations</a></li>
+<li class="chapter" data-level="5.2" data-path="theorems-and-proofs.html"><a href="theorems-and-proofs.html"><i class="fa fa-check"></i><b>5.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="5.3" data-path="callout-blocks.html"><a href="callout-blocks.html"><i class="fa fa-check"></i><b>5.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>6</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6.1</b> Publishing</a></li>
+<li class="chapter" data-level="6.2" data-path="pages.html"><a href="pages.html"><i class="fa fa-check"></i><b>6.2</b> 404 pages</a></li>
+<li class="chapter" data-level="6.3" data-path="metadata-for-sharing.html"><a href="metadata-for-sharing.html"><i class="fa fa-check"></i><b>6.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Hackathon Information</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> R - the Statistical Programming Language</h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="images/rLogo.png" alt="The Official Logo of the R Programming Language" width="30%" />
+<p class="caption">
+Figure 1.2: The Official Logo of the R Programming Language
+</p>
+</div>
+<p>If you are a SBS student, then you would have (or will) learn(ed) this language during <em>BS0004: Introduction to Data Science</em>. However, the contents of that module are hardly sufficient for the work that I do during hackathons<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<p>For that reason, I ask that in addition to revising the R that you’ve learned during <em>BS0004</em>, that you at least learn bother to read <a href="#bookstoread">the following books</a> so that you don’t become overwhelmed during the event itself. Otherwise, if you have yet to take <em>BS0004</em>, then I will also list some beginner-friendly resources to learn grasp the basics of R.</p>
+<div id="what-is-r" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> What is R?</h3>
+<p>R is a dialect of S. That’s all.</p>
+<div id="okay-so-what-is-s" class="section level4" number="1.1.1.1">
+<h4><span class="header-section-number">1.1.1.1</span> Okay, so… what <em>is</em> S?</h4>
+<p><strong>S</strong> is a statistical computing language developed at <a href="http://www.bell-labs.com/">Bell Laboratories</a> some time during 1975 to 1976. During the latter time period, much of statistical computing had been done using <strong>FORTRAN</strong>: a general purpose programming language that was especially used for scientific programming and number crunching. Hence, S was created to provide a more interactive and a more intuitive approach to the aforementioned tasks.</p>
+<p>When the first working version of S was made in 1976, it didn’t have a name. However, the language got its name via suggestions from the scientific community and the fact that the letter “S” was consistent with the names of other programming languages developed at Bell Laboratories (e.g., C).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="images/blueBook.jpg" alt="A Vintage Copy of the 1988 Blue Book" width="30%" />
+<p class="caption">
+Figure 1.3: A Vintage Copy of the 1988 Blue Book
+</p>
+</div>
+<p>Needless to say, S has come a long way since its fruition in the late 1900s. Some time in the late 1980s, the <strong><em>New S Language</em></strong> (i.e., the 1988 blue book - see above image) was published and had new features: for instance, the ability to pass functions to functions (i.e., first-class functions). Many other changes were also introduced, including but not limited to the usage of X11 and PostScript graphics devices, the re-writing of many internal functions from FORTRAN to C, and the usage of double precision arithmetic.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="images/rossMan.jpg" alt="Ross Ihaka (left) and Robert Gentlemen (right) Receiving the Pickering Medal" width="33%" />
+<p class="caption">
+Figure 1.4: Ross Ihaka (left) and Robert Gentlemen (right) Receiving the Pickering Medal
+</p>
+</div>
+<p>In 1991, Ross Ihaka and Robert Gentlemen (i.e., the above two individuals) - statisticians from the University of Auckland - began working on a newer implementation of S. R got its name as both statisticians’ names begin with the letter “R.”</p>
+<p>Nevertheless, Ihaka and Gentlemen publicized their implementation on the data archive StatLib in 1993. Only during 1995 did the statistician Martin Mächler convince Ihaka and Gentlemen to make R a free and open-source software under the GNU public license, effectively making 1995 the year the first version of R was released.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="images/cran.jpg" alt="A User-Made Logo of the Comprehensive R Archive Network" width="237" />
+<p class="caption">
+Figure 1.5: A User-Made Logo of the Comprehensive R Archive Network
+</p>
+</div>
+<p>R has been extensively developed since 1995. In 1997, the <strong>C</strong>omprehensive <strong>R</strong> <strong>A</strong>rchive <strong>N</strong>etwork (or <strong>CRAN</strong> for short) was launched: an online repository of R’s executable files, source code, documentations, and user-created packages. CRAN currently has 101 mirrors and 18728 user-created packages.</p>
+<p>During the same year, the <strong>R core team</strong> was also formed to further develop the language - the team currently consists of Ihaka, Gentlemen, and many other influential statisticians. In 2003, the <strong>R foundation</strong> was formed as a non-profit organization to provide further support for developing R.</p>
+</div>
+</div>
+<div id="installing-r-and-rstudio" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Installing R and RStudio</h3>
+<p>In order to use R, you will need to have R installed onto your machine. While there are R interpreters and code editors that are freely available on the internet, these editors are more suitable for fiddling around with R (i.e., you have some code that you want to try out or are new to the language and just want a quick and easy way of trying it out) than they are for machine learning or number crunching.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="images/replit.PNG" alt="An Online REPL Shell for R Displaying an Error" width="908" />
+<p class="caption">
+Figure 1.6: An Online REPL Shell for R Displaying an Error
+</p>
+</div>
+<p>More importantly, however, is that the functionalities these editors provide are severely limited. Not only will you be unable to save your work or install packages, but some base R functions may not work at all in these editors!</p>
+<p>Fortunately, R comes shipped in different distributions depending on your computer’s operating system. I’ve listed several installation links below - click on the appropriate link to download R for your machine. The installation instructions for R should be listed on the installations links themselves:</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://cran.r-project.org/bin/windows/base/">R for Windows</a></li>
+<li><a href="https://cran.r-project.org/bin/macosx/">R for MacOS</a></li>
+<li><a href="http://www.jason-french.com/blog/2013/03/11/installing-r-in-linux/">R for Linux</a></li>
+</ol>
+<p>Although only the R console is necessary to begin working with R, I’d highly recommend installing <strong>RStudio</strong> - an <strong>I</strong>ntegrated <strong>D</strong>evelopment <strong>E</strong>nvironment for R - as well. RStudio is free and comes equipped with features such as:</p>
+<ol style="list-style-type: decimal">
+<li>Syntax highlighting</li>
+<li>An object viewer</li>
+<li>Tools for <a href="#vc">version control</a>, plotting, and debugging.</li>
+</ol>
+<p>You can download RStudio <a href="https://www.rstudio.com/products/rstudio/">here</a> - just be sure to download <em>RStudio Desktop</em> and not <em>RStudio Server</em>!</p>
+</div>
+<div id="resources-to-consult" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Resources to consult</h3>
+<p>I’ve listed several resources to consult to refresh or strengthen your knowledge of R. Depending on how familiar or competent with the material presented in these books, you may or may not have to spend that much time with each one of them.</p>
+<div id="ive-forgotten-my-r-never-touched-it-before---where-do-i-start" class="section level4" number="1.1.3.1">
+<h4><span class="header-section-number">1.1.3.1</span> I’ve forgotten my R / never touched it before - where do I start?</h4>
+<p>Glad you asked - here are a couple of resources that you can consider consulting.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong><code>swirl</code></strong> <a href="https://swirlstats.com/">(https://swirlstats.com/)</a></p>
+<p><strong><code>swirl</code></strong> is a package developed by students at Johns Hopkins University to help R novices learn R in R<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. <code>swirl</code> has content for topics from the bare basics of R (i.e., how do I print something out to the R console, how do I create a vector, etc.) to dealing with statistics in R; to use <code>swirl</code>, open up RStudio and type the following into your R console:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;swirl&quot;</span>)</span>
+<span id="cb1-2"><a href="r.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
+<span id="cb1-3"><a href="r.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
+<p>And once you’ve typed in and executed the above code, <code>swirl</code> will provide you with a set of instructions on what to do next!</p></li>
+<li><p><strong>Hands-On Programming with R</strong> <a href="https://rstudio-education.github.io/hopr/index.html">(https://rstudio-education.github.io/hopr/index.html)</a></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<img src="images/rProg.PNG" alt="*Hands-On R Programming* by Garrett Grolemund" width="40%" />
+<p class="caption">
+Figure 1.7: <em>Hands-On R Programming</em> by Garrett Grolemund
+</p>
+</div>
+<p>This is a fun (albeit unconventional) introduction to R from one of my favorite book publishers. In this book, the author aims to teach you R by coding several mini projects.</p>
+<p>While the content presented in this book is decent, not all of it will be very relevant for hackathons. Chapters 2, 3, and 5 of the book are the most important to know<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p></li>
+<li><p><strong>R Programming</strong> <a href="https://www.coursera.org/learn/r-programming?specialization=jhu-data-science">(https://www.coursera.org/learn/r-programming?specialization=jhu-data-science)</a></p>
+<p>This MOOC from Johns Hopkins University is a supposed introduction to R.</p>
+<p>Even though this MOOC is meant to be a four-week introduction to R, it is still a very tough MOOC nonetheless! However, it does make you a better programmer!</p></li>
+</ol>
+</div>
+<div id="doing-stuff-with-r" class="section level4" number="1.1.3.2">
+<h4><span class="header-section-number">1.1.3.2</span> Doing stuff with R</h4>
+<p>The resources listed above are really only good for absolute beginners: people who know nothing about R and just want to get acquainted with the basics of the language.</p>
+<p>If you already know the basics of R, then do check out these resources to get familiar with the tools that I use within R:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>R for Data Science</strong> <a href="https://r4ds.had.co.nz/">(https://r4ds.had.co.nz/)</a></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-9"></span>
+<img src="images/r4.PNG" alt="*R for Data Science* by Hadley Wickham" width="249" />
+<p class="caption">
+Figure 1.8: <em>R for Data Science</em> by Hadley Wickham
+</p>
+</div>
+<p>This book teaches you the basics of data science (miles better than <em>BS0004</em> does if you ask me) using the <code>tidyverse</code> functions. This book is also especially great if you don’t quite know what data science is or what a typical data science workflow looks like.</p>
+<p>That said, the code shown in this book is drastically different from the above sources (and what <em>BS0004</em> teaches). However, the code in this book is also reminiscent of the coding that I do, so <em>definitely</em> read this book!</p></li>
+<li><p><strong>Practical Machine Learning</strong> <a href="https://www.coursera.org/learn/practical-machine-learning">(https://www.coursera.org/learn/practical-machine-learning)</a></p>
+<p>This is a four-week long MOOC on Coursera by Johns Hopkins University. In this MOOC, you will learn to build machine learning models using the <code>caret</code> package.</p>
+<p>This MOOC is <em>super</em> tough, but also extremely rewarding once you do complete it.</p></li>
+<li><p><strong>Mastering Machine Learning with R</strong></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-10"></span>
+<img src="images/machineLearning.jpg" alt="*Mastering Machine Learning with R* by Cory Leimeister" width="122" />
+<p class="caption">
+Figure 1.9: <em>Mastering Machine Learning with R</em> by Cory Leimeister
+</p>
+</div>
+<p>Most NLB libraries should have this book available. Otherwise, you can head on over to <a href="https://libgen.li/">library genesis</a> to search for this book!</p>
+<p>This book covers numerous machine learning algorithms that I think one ought to know (e.g., dimensionality reduction, regressions, clustering, business analytics, decision trees, etc). It does not, however, make one an expert at machine learning - becoming an expert takes years of one’s time and energy. It does, however, provide you with a good foundation of machine learning.</p></li>
+<li><p><strong>Data Visualization in R with <code>ggplot2</code></strong> <a href="https://www.coursera.org/learn/jhu-data-visualization-r">(https://www.coursera.org/learn/jhu-data-visualization-r)</a></p>
+<p>If you’ve forgotten or don’t know what <code>ggplot2</code> is, it’s a package in R that helps you create presentation-worthy plots (i.e., if you are presenting your work in front of an audience, you can consider using <code>ggplot2</code> to make things look more presentable).</p>
+<p>While this MOOC is also four-weeks long, it is also relatively chill. I finished this course in one sitting.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>That is, assuming that you only knew as much R as there is in <em>BS0004</em>, you are going to have a <strong>very</strong> rough time under me if you don’t bother to learn more about the language.<a href="r.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Yeah, I know - this sounds like a paradox.<a href="r.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>So, if you don’t have that much time, I’d suggest reading through those chapters at the very least<a href="r.html#fnref5" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="technologies-i-use.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vcs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
